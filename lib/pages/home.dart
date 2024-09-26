@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'adicionartarefas.dart';
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -76,7 +76,13 @@ class _HomeState extends State<Home> {
                 width: 220,
                     height: 50,
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  
+                  onPressed: ( ) =>{
+                    Navigator.push(
+                       context, 
+                       MaterialPageRoute(builder: (context) => const Adicionartarefas()),
+                       )
+                  },
                   label: const Text(
                     'Adicionar Tarefa',
                     style: TextStyle(
