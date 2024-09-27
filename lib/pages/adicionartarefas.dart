@@ -23,79 +23,75 @@ class _AdicionartarefasState extends State<Adicionartarefas> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Nova Tarefa'), // Título da tela
-      ),
+  title: const Text(
+    'Nova Tarefa',
+    textAlign: TextAlign.center, // Opcional, pois o centerTitle já alinha o texto
+    style: TextStyle(
+      fontWeight: FontWeight.bold,
+    ),
+  ),
+  backgroundColor: const Color.fromARGB(255, 97, 162, 236),
+  centerTitle: true, // Centraliza o título do AppBar
+),
+
+      // Defina a cor de fundo diretamente no Scaffold
+      backgroundColor: const Color.fromARGB(255, 97, 162, 236),
       body: SingleChildScrollView(
-        child: Container(
-          color: const Color.fromARGB(255, 97, 162, 236), // Cor de fundo da tela
-          padding: const EdgeInsets.all(16.0),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
           child: Container(
-            color: const Color.fromARGB(255, 245, 245, 245), // Cor do contêiner interno
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 245, 245, 245), // Cor do contêiner interno
+              borderRadius: BorderRadius.circular(10.0), // Bordas arredondadas do contêiner interno
+            ),
+            padding: const EdgeInsets.all(20.0), // Espaçamento interno do contêiner interno
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 10),
                 // Texto para Nome da Tarefa
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: const Text(
-                    'Nome da Tarefa',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
+                const Text(
+                  'Nome da Tarefa',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 // Campo de texto para inserir o nome da tarefa
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey, // Cor de fundo do campo
-                      filled: true,
-                      border: OutlineInputBorder(), // Borda do campo
-                      hintText: 'Digite o nome da tarefa', // Texto de dica
-                      contentPadding: EdgeInsets.all(16.0), // Espaçamento interno
-                    ),
+                const TextField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.grey, // Cor de fundo do campo
+                    filled: true,
+                    hintText: 'Digite o nome da tarefa', // Texto de dica
+                    contentPadding: EdgeInsets.all(16.0), // Espaçamento interno
                   ),
                 ),
                 const SizedBox(height: 10),
                 // Texto para Descrição
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: const Text(
-                    'Descrição',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
+                const Text(
+                  'Descrição',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 // Campo de texto para inserir a descrição da tarefa
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: const TextField(
-                    maxLines: 10, // Permitir múltiplas linhas
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey, // Cor de fundo do campo
-                      filled: true,
-                      border: OutlineInputBorder(), // Borda do campo
-                      hintText: 'Descreva sua tarefa...', // Texto de dica
-                      contentPadding: EdgeInsets.all(16.0), // Espaçamento interno
-                    ),
-                    scrollPhysics: BouncingScrollPhysics(),
-                    keyboardType: TextInputType.multiline, // Tipo de teclado para múltiplas linhas
+                const TextField(
+                  maxLines: 10, // Permitir múltiplas linhas
+                  decoration: InputDecoration(
+                    fillColor: Colors.grey, // Cor de fundo do campo
+                    filled: true,
+                    hintText: 'Descreva sua tarefa...', // Texto de dica
+                    contentPadding: EdgeInsets.all(16.0), // Espaçamento interno
                   ),
+                  scrollPhysics: BouncingScrollPhysics(),
+                  keyboardType: TextInputType.multiline, // Tipo de teclado para múltiplas linhas
                 ),
                 const SizedBox(height: 10),
                 // Texto para Período de Entrega
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: const Text(
-                    'Período de Entrega',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
+                const Text(
+                  'Período de Entrega',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 // Dropdown para selecionar o período de entrega
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20.0),
                   decoration: BoxDecoration(
                     color: Colors.grey, // Cor de fundo cinza para o Dropdown
                     borderRadius: BorderRadius.circular(8), // Bordas arredondadas
@@ -105,12 +101,7 @@ class _AdicionartarefasState extends State<Adicionartarefas> {
                       isExpanded: true, // Ocupa toda a largura disponível
                       hint: const Row(
                         children: [
-                          Icon(
-                            Icons.list,
-                            size: 16,
-                            color: Colors.black, // Cor do ícone
-                          ),
-                          SizedBox(width: 8),
+                          SizedBox(width: 20),
                           Expanded(
                             child: Text(
                               'Selecione um Período', // Texto de dica
@@ -144,15 +135,16 @@ class _AdicionartarefasState extends State<Adicionartarefas> {
                         });
                       },
                       iconStyleData: const IconStyleData(
-                        icon: Icon(Icons.arrow_forward_ios_outlined), // Ícone do dropdown
-                        iconSize: 14,
+                        icon: Icon(Icons.calendar_today), // Ícone do dropdown
+                    
+                        iconSize: 24,
                         iconEnabledColor: Colors.black, // Cor do ícone ativado
                         iconDisabledColor: Colors.grey, // Cor do ícone desativado
+                        
                       ),
                       dropdownStyleData: DropdownStyleData(
                         maxHeight: 200, // Altura máxima do dropdown
-                        
-                        width:300, // Largura do dropdown
+                        width: 300, // Largura do dropdown
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14), // Bordas arredondadas
                           color: Colors.grey, // Cor de fundo do dropdown
@@ -170,7 +162,32 @@ class _AdicionartarefasState extends State<Adicionartarefas> {
                       ),
                     ),
                   ),
+                  
                 ),
+                 const SizedBox(height: 20), // Espaçamento entre os botões
+              Align(
+        alignment: Alignment.center,
+  child: SizedBox(
+     // Espaçamento entre os botões
+    width: 200,
+    child: ElevatedButton(
+      onPressed: () => {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color.fromARGB(255, 0, 167, 97),
+        side: const BorderSide(color: Colors.white, width: 2),
+      ),
+      child: const Text(
+        'Salvar Tarefa',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ),
+)
+                 
               ],
             ),
           ),
