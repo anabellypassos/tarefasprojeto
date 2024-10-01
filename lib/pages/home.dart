@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'adicionartarefas.dart';
+import 'vertarefas.dart';
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -51,7 +52,13 @@ class _HomeState extends State<Home> {
                 width: 220,
                 height: 50,
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context, 
+                      MaterialPageRoute(builder: (context) => const Vertarefas()),
+                    );
+                     
+                  },
                   
                   label: const Text(
                     'Ver Tarefas',
@@ -102,29 +109,8 @@ class _HomeState extends State<Home> {
                 ),
               ),
               const SizedBox(height: 20), // Espaçamento entre os botões
-              SizedBox(
-                width: 220,
-                    height: 50,
-                child: ElevatedButton.icon(
-                  onPressed: () {},
-                  label: const Text(
-                    'Tarefas Concluídas',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  icon: const Icon(
-                    Icons.check,
-                    color: Colors.white,
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(131, 123, 205, 252),
-                    side: const BorderSide(color: Colors.white, width: 2),
-                  ),
-                ),
-              ),
+            
+              
             ],
           ),
         ),
